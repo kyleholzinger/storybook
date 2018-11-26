@@ -213,9 +213,12 @@ class Story extends Component {
       return null;
     }
 
+    const kindWithoutRoot = context.kind.split(/[^a-zA-Z0-9\/]/).reverse()[0];
+    const formattedKind = kindWithoutRoot.replace(/[^\w]/, ' ');
+
     return (
       <div style={stylesheet.header.body}>
-        <h1 style={stylesheet.header.h1}>{context.kind}</h1>
+        <h1 style={stylesheet.header.h1}>{formattedKind}</h1>
         <h2 style={stylesheet.header.h2}>{context.story}</h2>
       </div>
     );
